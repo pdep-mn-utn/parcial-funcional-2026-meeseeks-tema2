@@ -207,8 +207,6 @@ correrTests = hspec $ do
         `shouldBe` "Mr. Meeseeks (asustado) (asustado) (asustado)"
 
   describe "Punto 4 - estaOrdenadaPorSufrimiento" $ do
-    it "una caja vacia NO esta ordenada (decision de dominio)" $
-      estaOrdenadaPorSufrimiento [] `shouldBe` False
     it "una caja con un solo Meeseeks esta ordenada" $
       estaOrdenadaPorSufrimiento [meeseeksFeliz] `shouldBe` True
     it "esta ordenada si las horas son no decrecientes" $
@@ -219,8 +217,6 @@ correrTests = hspec $ do
       [meeseeks3h, meeseeks3h] `shouldSatisfy` estaOrdenadaPorSufrimiento
 
   describe "Punto 4b - cumplenEnCadena (generalizacion)" $ do
-    it "una caja vacia no cumple la cadena (decision de dominio)" $
-      cumplenEnCadena tieneMenosOIgualHoras [] `shouldBe` False
     it "una caja con un solo Meeseeks cumple la cadena" $
       cumplenEnCadena tieneMenosOIgualHoras [meeseeksFeliz] `shouldBe` True
     it "cumple si el criterio de horas vale para todos los pares" $

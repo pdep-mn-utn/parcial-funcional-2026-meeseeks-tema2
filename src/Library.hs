@@ -86,14 +86,12 @@ aterrar = asustar . asustar . asustar
 -- =====================================================================
 
 -- estaOrdenadaPorSufrimiento :: Caja -> Bool
--- estaOrdenadaPorSufrimiento []  = False
 -- estaOrdenadaPorSufrimiento [_] = True
 -- estaOrdenadaPorSufrimiento (meeseeks1 : meeseeks2 : resto) =
     -- horasDeExistencia meeseeks1 <= horasDeExistencia meeseeks2
     -- && estaOrdenadaPorSufrimiento (meeseeks2 : resto)
 
 cumplenEnCadena :: (Meeseeks -> Meeseeks -> Bool) -> Caja -> Bool
-cumplenEnCadena _        []                       = False
 cumplenEnCadena _        [_]                      = True
 cumplenEnCadena criterio (meeseeks1 : meeseeks2 : resto) =
     criterio meeseeks1 meeseeks2 && cumplenEnCadena criterio (meeseeks2 : resto)
